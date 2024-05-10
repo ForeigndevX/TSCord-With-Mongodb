@@ -45,14 +45,21 @@ export default class PrefixCommand {
 			if (guildData.warnings) {
 				const userWarnings = []
 
+				const pastWarnings = []
+
 				for (const warning of guildData.warnings) {
 					if (warning.userId === User.id) {
 						userWarnings.push(warning)
 					}
+					pastWarnings.push(warning)
 				}
 
+				guildData.warnings = pastWarnings
+
 				// Push new warning into the warnings array
-				guildData.warnings.push({ userId: User.id, reason: Reason, totalWarnings: userWarnings.length + 1 })
+				await guildData.warnings.push({ userId: User.id, reason: Reason, totalWarnings: userWarnings.length + 1 })
+
+				console.log(guildData)
 
 				// Save the updated guild data to the mongoDB database
 				await this.db.get(Guild).save(guildData.guildId, guildData)
@@ -66,7 +73,7 @@ export default class PrefixCommand {
 			} else {
 				guildData.warnings = []
 
-				guildData.warnings.push({ userId: User.id, reason: Reason, totalWarnings: 1 })
+				await guildData.warnings.push({ userId: User.id, reason: Reason, totalWarnings: 1 })
 
 				await this.db.get(Guild).save(guildData.guildId, guildData)
 

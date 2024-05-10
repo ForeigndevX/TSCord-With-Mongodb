@@ -26,11 +26,12 @@ export class User extends CustomBaseEntity {
 
 export class UserRepository extends EntityRepository<User> {
 
-	async save(userId?: string, changes?: object): Promise<void> {
+	async save(userId?: string, changes?: User): Promise<void> {
 		const user = await this.findOne({ userId })
 
 		if (user && changes) {
-			Object.assign(user, changes)
+			user.userId = changes.userId
+			user.lastInteract = changes.lastInteract
 
 			await this.persistAndFlush(user)
 		} else if (user && !changes) {

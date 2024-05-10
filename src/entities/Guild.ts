@@ -36,11 +36,19 @@ export class Guild extends CustomBaseEntity {
 
 export class GuildRepository extends EntityRepository<Guild> {
 
-	async save(guildId?: string, changes?: object): Promise<void> {
+	async save(guildId?: string, changes?: any): Promise<void> {
 		const guild = await this.findOne({ guildId })
 
 		if (guild && changes) {
-			Object.assign(guild, changes)
+			guild.prefix = changes.prefix
+
+			guild.deleted = changes.deleted
+
+			guild.warnings = changes.warnings
+
+			guild.lastInteract = changes.lastInteract
+
+			console.log(`Updating guild: ${guildId}\n${changes.warnings}`)
 
 			await this.persistAndFlush(guild)
 		} else if (guild && !changes) {
