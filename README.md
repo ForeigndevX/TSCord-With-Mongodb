@@ -20,7 +20,9 @@
 
 It uses [`discordx`](https://github.com/discordx-ts/discordx) and [`discord.js v14`](https://github.com/discordjs/discord.js) under the hood to simplify the development of discord bots.
 
-This template was created to give developers a starting point for new Discord bots, so that much of the initial setup can be avoided and developers can instead focus on meaningful bot features. Developers can simply follow the [installation](https://tscord.discbot.app/docs/bot/get-started/installation) and the [configuration](https://tscord.discbot.app/docs/bot/get-started/configuration) instructions, and have a working bot with many boilerplate features already included! This is a modified version of the original, as usual all credits go to the original author and [DJKnaeckebrot](https://github.com/DJKnaeckebrot) -> (https://github.com/barthofu/tscord/pull/162/files).
+This template was created to give developers a starting point for new Discord bots, so that much of the initial setup can be avoided and developers can instead focus on meaningful bot features. Developers can simply follow the [installation](https://tscord.discbot.app/docs/bot/get-started/installation) and the [configuration](https://tscord.discbot.app/docs/bot/get-started/configuration) instructions, and have a working bot with many boilerplate features already included!
+
+This is a modified version of the original, as usual all credits go to the original author and [DJKnaeckebrot](https://github.com/DJKnaeckebrot) -> (https://github.com/barthofu/tscord/pull/162/files).
     </td>
   </tr>
 </table>
